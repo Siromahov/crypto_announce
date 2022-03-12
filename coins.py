@@ -1,0 +1,90 @@
+from PyQt5.QtGui import QFont, QPixmap
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton, QTextEdit
+import sys
+
+
+class coins(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initialize_ui()
+
+    def initialize_ui(self):
+        self.setGeometry(100, 100, 320, 200)
+        self.setWindowTitle('Coins')
+        self.display_images()
+        self.display_labels()
+        self.display_buttons()
+        self.display_checkboxes()
+
+        self.show()
+
+    def display_images(self):
+        background_image = "img/grey2.png"
+        try:
+            with open(background_image):
+                background = QLabel(self)
+                pixmap = QPixmap(background_image)
+                background.setPixmap(pixmap)
+        except FileNotFoundError:
+            print("Image not found.")
+
+    def display_labels(self):
+        text = QLabel(self)
+        text.setText("Select crypro currencies:", )
+        text.setFont(QFont('calibri', 20))
+        text.setStyleSheet("color : #66FCF1")
+        text.move(10, 10)
+
+    def display_buttons(self):
+        cancel_button = QPushButton("Cancel", self)
+        cancel_button.setFont(QFont('calibri', 20))
+        cancel_button.setStyleSheet("background-color : #C5C6C7")
+        cancel_button.clicked.connect(self.cancel)
+        cancel_button.setGeometry(30, 155, 90, 30)
+
+        save_button = QPushButton("Save", self)
+        save_button.setFont(QFont('calibri', 20))
+        save_button.setStyleSheet("background-color : #C5C6C7")
+        save_button.setGeometry(200, 155, 90, 30)
+
+    def display_checkboxes(self):
+        self.BTC = QLabel(self)
+        self.BTC.setWordWrap(True)
+
+        self.BTC = QCheckBox('BTC', self)
+        self.BTC.setStyleSheet("color : #66FCF1")
+        self.BTC.setFont(QFont('calibri', 20))
+        self.BTC.move(40, 50)
+
+        self.ETH = QLabel(self)
+        self.ETH.setWordWrap(True)
+
+        self.ETH = QCheckBox('ETH', self)
+        self.ETH.setStyleSheet("color : #66FCF1")
+        self.ETH.setFont(QFont('calibri', 20))
+        self.ETH.move(40, 80)
+
+        self.LTC = QLabel(self)
+        self.LTC.setWordWrap(True)
+
+        self.LTC = QCheckBox('LTC', self)
+        self.LTC.setStyleSheet("color : #66FCF1")
+        self.LTC.setFont(QFont('calibri', 20))
+        self.LTC.move(40, 110)
+
+        self.HOT = QLabel(self)
+        self.HOT.setWordWrap(True)
+
+        self.HOT = QCheckBox('HOT', self)
+        self.HOT.setStyleSheet("color : #66FCF1")
+        self.HOT.setFont(QFont('calibri', 20))
+        self.HOT.move(210, 50)
+
+    def cancel(self):
+        self.close()
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = coins()
+    sys.exit(app.exec_())

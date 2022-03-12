@@ -16,6 +16,8 @@ def abv_bg():
     print("\nopening abv.bg")
 
     sleep(10)
+    button = driver.find_element_by_xpath("//div[text()='My Button']")
+    button.click()
     driver.find_element_by_xpath("/html/body/main/section[1]/div[2]/form/p[1]/input"). \
         send_keys(mail)
     print(mail)
