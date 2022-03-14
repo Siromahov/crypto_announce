@@ -7,6 +7,10 @@ driver = webdriver.Chrome(PATH)
 
 driver.get("https://www.tradingview.com/markets/cryptocurrencies/prices-all/")
 
+HOT_price = float(driver.find_element_by_xpath("/html/body/div[2]/div[4]/div[2]/div/div/div[3]/div[2]/div[4]/table/tbody/tr[92]/td[4]/span").text)
+rounded_HOT = ceil(HOT_price * 10000) / 10000
+HOT_percentage = driver.find_element_by_xpath("/html/body/div[2]/div[4]/div[2]/div/div/div[3]/div[2]/div[4]/table/tbody/tr[92]/td[8]").text
+
 LTC_price = float(driver.find_element_by_xpath("/html/body/div[2]/div[4]/div[2]/div/div/div[3]/div[2]/div[4]/table/tbody/tr[21]/td[4]/span").text)
 rounded_LTC = ceil(LTC_price * 100) / 100
 LTC_percentage = driver.find_element_by_xpath("/html/body/div[2]/div[4]/div[2]/div/div/div[3]/div[2]/div[4]/table/tbody/tr[21]/td[8]").text

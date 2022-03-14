@@ -2,6 +2,8 @@ from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton, QTextEdit
 import sys
 
+import selected_info
+
 
 class sleep_interval(QWidget):
     def __init__(self):
@@ -65,8 +67,10 @@ class sleep_interval(QWidget):
     def click_method(self):
         hour_value = self.hour.toPlainText()
         minute_value = self.minute.toPlainText()
-        print(hour_value)
-        print(minute_value)
+        selected_info.hour = hour_value + selected_info.hour
+        selected_info.minute = minute_value + selected_info.minute
+        print(selected_info.all)
+
         self.cancel()
 
 

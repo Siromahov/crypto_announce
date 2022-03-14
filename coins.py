@@ -2,6 +2,8 @@ from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton, QTextEdit
 import sys
 
+import selected_info
+
 
 class coins(QWidget):
     def __init__(self):
@@ -45,43 +47,64 @@ class coins(QWidget):
         save_button = QPushButton("Save", self)
         save_button.setFont(QFont('calibri', 20))
         save_button.setStyleSheet("background-color : #C5C6C7")
+        save_button.clicked.connect(self.click_method)
         save_button.setGeometry(200, 155, 90, 30)
 
     def display_checkboxes(self):
-        self.BTC = QLabel(self)
-        self.BTC.setWordWrap(True)
+        BTC = QLabel(self)
+        BTC.setWordWrap(True)
 
-        self.BTC = QCheckBox('BTC', self)
-        self.BTC.setStyleSheet("color : #66FCF1")
-        self.BTC.setFont(QFont('calibri', 20))
-        self.BTC.move(40, 50)
+        BTC = QCheckBox('BTC', self)
+        BTC.setStyleSheet("color : #66FCF1")
+        BTC.setFont(QFont('calibri', 20))
+        BTC.stateChanged.connect(self.print_selected)
+        BTC.move(40, 50)
 
-        self.ETH = QLabel(self)
-        self.ETH.setWordWrap(True)
+        ETH = QLabel(self)
+        ETH.setWordWrap(True)
 
-        self.ETH = QCheckBox('ETH', self)
-        self.ETH.setStyleSheet("color : #66FCF1")
-        self.ETH.setFont(QFont('calibri', 20))
-        self.ETH.move(40, 80)
+        ETH = QCheckBox('ETH', self)
+        ETH.setStyleSheet("color : #66FCF1")
+        ETH.setFont(QFont('calibri', 20))
+        ETH.stateChanged.connect(self.print_selected)
+        ETH.move(40, 80)
 
-        self.LTC = QLabel(self)
-        self.LTC.setWordWrap(True)
+        LTC = QLabel(self)
+        LTC.setWordWrap(True)
 
-        self.LTC = QCheckBox('LTC', self)
-        self.LTC.setStyleSheet("color : #66FCF1")
-        self.LTC.setFont(QFont('calibri', 20))
-        self.LTC.move(40, 110)
+        LTC = QCheckBox('LTC', self)
+        LTC.setStyleSheet("color : #66FCF1")
+        LTC.setFont(QFont('calibri', 20))
+        LTC.stateChanged.connect(self.print_selected)
+        LTC.move(40, 110)
 
-        self.HOT = QLabel(self)
-        self.HOT.setWordWrap(True)
+        HOT = QLabel(self)
+        HOT.setWordWrap(True)
 
-        self.HOT = QCheckBox('HOT', self)
-        self.HOT.setStyleSheet("color : #66FCF1")
-        self.HOT.setFont(QFont('calibri', 20))
-        self.HOT.move(210, 50)
+        HOT = QCheckBox('HOT', self)
+        HOT.setStyleSheet("color : #66FCF1")
+        HOT.setFont(QFont('calibri', 20))
+        HOT.stateChanged.connect(self.print_selected)
+        HOT.move(210, 50)
 
     def cancel(self):
         self.close()
+
+    def print_selected(self, state, ):
+
+        sender = self.sender()
+        if state :
+            currency = (format(sender.text()))
+            selected_info.selected.append(currency)
+
+        else:
+            currency = (format(sender.text()))
+            selected_info.selected.append(currency)
+
+    def click_method(self):
+        print(selected_info.all)
+
+        self.cancel()
 
 
 if __name__ == '__main__':

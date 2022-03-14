@@ -1,5 +1,8 @@
+import time
+
 from selenium import webdriver
 from time import sleep
+
 import text
 import get_price
 
@@ -8,7 +11,6 @@ driver = webdriver.Chrome(PATH)
 mail = "se7u4v6g@abv.bg"
 pw = "12345678cr"
 send_to = ["vasilsonicsiromahov@gmail.com"]
-hour = (60 * 60)
 
 
 def abv_bg():
@@ -16,8 +18,6 @@ def abv_bg():
     print("\nopening abv.bg")
 
     sleep(10)
-    button = driver.find_element_by_xpath("//div[text()='My Button']")
-    button.click()
     driver.find_element_by_xpath("/html/body/main/section[1]/div[2]/form/p[1]/input"). \
         send_keys(mail)
     print(mail)
@@ -60,8 +60,10 @@ def abv_bg():
         "/html/body/div[1]/div/div[4]/div/div[4]/div/div[4]/div/div[2]/div/div[2]/div/div[1]/div[1]"). \
         click()
     print("\nsent")
+    time.sleep(4)
+    driver.quit()
 
 
 while True:
     abv_bg()
-    sleep(6)
+    time.sleep()

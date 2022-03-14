@@ -2,7 +2,7 @@ from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QTextEdit
 import sys
 
-import visualization
+import selected_info
 
 right_buttons_x_axis = 300
 left_buttons_x_axis = 20
@@ -73,7 +73,8 @@ class add_new_email(QWidget):
 
     def click_method(self):
         mail = self.text_field.toPlainText()
-        print(mail)
+        selected_info.mails.append(mail)
+        print(selected_info.all)
         self.close()
 
 
