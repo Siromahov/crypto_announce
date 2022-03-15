@@ -2,8 +2,8 @@
 mails = []
 
 # sleep
-hour = 0
-minute = 0
+hour = []
+minute = []
 
 # currency
 selected = []

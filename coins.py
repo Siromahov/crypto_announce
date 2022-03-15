@@ -5,7 +5,7 @@ import sys
 import selected_info
 
 
-class coins(QWidget):
+class Coins(QWidget):
     def __init__(self):
         super().__init__()
         self.initialize_ui()
@@ -93,7 +93,7 @@ class coins(QWidget):
     def print_selected(self, state, ):
 
         sender = self.sender()
-        if state :
+        if state:
             currency = (format(sender.text()))
             selected_info.selected.append(currency)
 
@@ -109,5 +109,5 @@ class coins(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = coins()
+    window = Coins()
     sys.exit(app.exec_())

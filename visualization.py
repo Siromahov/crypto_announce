@@ -12,7 +12,8 @@ right_buttons_x_axis = 300
 left_buttons_x_axis = 30
 hour = 1
 
-class control_window(QWidget):
+
+class ControlWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initialize_ui()
@@ -70,42 +71,36 @@ class control_window(QWidget):
         add_new_button.setStyleSheet("background-color : #C5C6C7")
         add_new_button.clicked.connect(self.add_new_email)
         add_new_button.setFont(QFont('calibri', 12))
-        add_new_button.setGeometry(300, 10, 140, 30)
-        add_new_button.move(left_buttons_x_axis, 200)
+        add_new_button.setGeometry(30, 200, 140, 30)
 
         pause_button = QPushButton("Pause", self)
         pause_button.setFont(QFont('calibri', 20))
         pause_button.setStyleSheet("background-color : #C5C6C7")
-        pause_button.setGeometry(300, 10, 90, 30)
-        pause_button.move(260, 20)
+        pause_button.setGeometry(260, 20, 90, 30)
 
         sleep_interval_button = QPushButton("Sleep Interval", self)
         sleep_interval_button.setFont(QFont('calibri', 12))
         sleep_interval_button.setStyleSheet("background-color : #C5C6C7")
         sleep_interval_button.clicked.connect(self.sleep_interval)
-        sleep_interval_button.setGeometry(300, 10, 100, 30)
-        sleep_interval_button.move(right_buttons_x_axis, 80)
+        sleep_interval_button.setGeometry(300, 80, 100, 30)
 
         coins_choice_button = QPushButton("   Coins   ", self)
         coins_choice_button.setFont(QFont('calibri', 12))
         coins_choice_button.setStyleSheet("background-color : #C5C6C7")
         coins_choice_button.clicked.connect(self.coins)
-        coins_choice_button.setGeometry(300, 10, 100, 30)
-        coins_choice_button.move(right_buttons_x_axis, 120)
+        coins_choice_button.setGeometry(300, 120, 100, 30)
 
         night_mode_button = QPushButton("Night mode", self)
         night_mode_button.setFont(QFont('calibri', 12))
         night_mode_button.setStyleSheet("background-color : #C5C6C7")
         night_mode_button.clicked.connect(self.night_mode)
-        night_mode_button.setGeometry(300, 10, 100, 30)
-        night_mode_button.move(right_buttons_x_axis, 160)
+        night_mode_button.setGeometry(300, 160, 100, 30)
 
         restore_button = QPushButton("   Restore   ", self)
         restore_button.setFont(QFont('calibri', 12))
         restore_button.setStyleSheet("background-color : #C5C6C7")
-        restore_button.setGeometry(300, 10, 100, 30)
+        restore_button.setGeometry(300, 200, 100, 30)
         restore_button.clicked.connect(self.restore)
-        restore_button.move(right_buttons_x_axis, 200)
 
     def selected_mail(self, state):
 
@@ -119,7 +114,7 @@ class control_window(QWidget):
             print(selected_info.all)
 
     def add_new_email(self):
-        self.w = add_new_email.add_new_email()
+        self.w = add_new_email.AddNewEmail()
         self.w.show()
 
     def night_mode(self):
@@ -127,11 +122,11 @@ class control_window(QWidget):
         self.w.show()
 
     def sleep_interval(self):
-        self.w = sleep_interval.sleep_interval()
+        self.w = sleep_interval.SleepInterval()
         self.w.show()
 
     def coins(self):
-        self.w = coins.coins()
+        self.w = coins.Coins()
         self.w.show()
 
     def restore(self):
@@ -157,7 +152,6 @@ class control_window(QWidget):
     def not_selected_sleep_interval(self):
         if len(selected_info.hour) < 1 or len(selected_info.minute) < 1:
             self.time_dialog()
-            print(selected_info.hour)
             import main
             main
 
@@ -172,7 +166,7 @@ class control_window(QWidget):
         message.setWindowTitle("No email selected")
         message.setStandardButtons(QMessageBox.Ok)
 
-        returnValue = message.exec()
+        return_value = message.exec()
 
     def time_dialog(self):
         message = QMessageBox()
@@ -194,10 +188,10 @@ class control_window(QWidget):
         message.setWindowTitle("No currency selected")
         message.setStandardButtons(QMessageBox.Ok)
 
-        returnValue = message.exec()
+        return_value = message.exec()
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = control_window()
+    window = ControlWindow()
     sys.exit(app.exec_())

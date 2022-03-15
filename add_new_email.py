@@ -8,7 +8,7 @@ right_buttons_x_axis = 300
 left_buttons_x_axis = 20
 
 
-class add_new_email(QWidget):
+class AddNewEmail(QWidget):
 
     def __init__(self):
         super().__init__()
@@ -80,5 +80,5 @@ class add_new_email(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = add_new_email()
+    window = AddNewEmail()
     sys.exit(app.exec_())

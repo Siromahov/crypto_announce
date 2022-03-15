@@ -5,7 +5,7 @@ import sys
 import selected_info
 
 
-class sleep_interval(QWidget):
+class SleepInterval(QWidget):
     def __init__(self):
         super().__init__()
         self.initialize_ui()
@@ -67,8 +67,8 @@ class sleep_interval(QWidget):
     def click_method(self):
         hour_value = self.hour.toPlainText()
         minute_value = self.minute.toPlainText()
-        selected_info.hour = hour_value + selected_info.hour
-        selected_info.minute = minute_value + selected_info.minute
+        selected_info.hour.append(hour_value[6:])
+        selected_info.minute.append(minute_value[8:])
         print(selected_info.all)
 
         self.cancel()
@@ -76,5 +76,5 @@ class sleep_interval(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = sleep_interval()
+    window = SleepInterval()
     sys.exit(app.exec_())
