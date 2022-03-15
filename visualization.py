@@ -10,7 +10,6 @@ import night_mode
 
 right_buttons_x_axis = 300
 left_buttons_x_axis = 30
-hour = 1
 
 
 class ControlWindow(QWidget):
