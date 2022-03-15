@@ -10,7 +10,6 @@ import night_mode
 
 right_buttons_x_axis = 300
 left_buttons_x_axis = 30
-hour = 1
 
 class control_window(QWidget):
     def __init__(self):
@@ -70,14 +69,12 @@ class control_window(QWidget):
         add_new_button.setStyleSheet("background-color : #C5C6C7")
         add_new_button.clicked.connect(self.add_new_email)
         add_new_button.setFont(QFont('calibri', 12))
-        add_new_button.setGeometry(300, 10, 140, 30)
-        add_new_button.move(left_buttons_x_axis, 200)
+        add_new_button.setGeometry(30, 200, 140, 30)
 
         pause_button = QPushButton("Pause", self)
         pause_button.setFont(QFont('calibri', 20))
         pause_button.setStyleSheet("background-color : #C5C6C7")
-        pause_button.setGeometry(300, 10, 90, 30)
-        pause_button.move(260, 20)
+        pause_button.setGeometry(260, 20, 90, 30)
 
         sleep_interval_button = QPushButton("Sleep Interval", self)
         sleep_interval_button.setFont(QFont('calibri', 12))
@@ -90,22 +87,19 @@ class control_window(QWidget):
         coins_choice_button.setFont(QFont('calibri', 12))
         coins_choice_button.setStyleSheet("background-color : #C5C6C7")
         coins_choice_button.clicked.connect(self.coins)
-        coins_choice_button.setGeometry(300, 10, 100, 30)
-        coins_choice_button.move(right_buttons_x_axis, 120)
+        coins_choice_button.setGeometry(300, 120, 100, 30)
 
         night_mode_button = QPushButton("Night mode", self)
         night_mode_button.setFont(QFont('calibri', 12))
         night_mode_button.setStyleSheet("background-color : #C5C6C7")
         night_mode_button.clicked.connect(self.night_mode)
-        night_mode_button.setGeometry(300, 10, 100, 30)
-        night_mode_button.move(right_buttons_x_axis, 160)
+        night_mode_button.setGeometry(300, 160, 100, 30)
 
         restore_button = QPushButton("   Restore   ", self)
         restore_button.setFont(QFont('calibri', 12))
         restore_button.setStyleSheet("background-color : #C5C6C7")
-        restore_button.setGeometry(300, 10, 100, 30)
+        restore_button.setGeometry(300, 200, 100, 30)
         restore_button.clicked.connect(self.restore)
-        restore_button.move(right_buttons_x_axis, 200)
 
     def selected_mail(self, state):
 
