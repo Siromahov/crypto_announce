@@ -6,7 +6,7 @@ import selected_info
 import add_new_email
 import sleep_interval
 import coins
-import night_mode
+import history
 
 right_buttons_x_axis = 300
 left_buttons_x_axis = 30
@@ -92,7 +92,7 @@ class ControlWindow(QWidget):
         night_mode_button = QPushButton("Night mode", self)
         night_mode_button.setFont(QFont('calibri', 12))
         night_mode_button.setStyleSheet("background-color : #C5C6C7")
-        night_mode_button.clicked.connect(self.night_mode)
+        night_mode_button.clicked.connect(self.history)
         night_mode_button.setGeometry(300, 160, 100, 30)
 
         restore_button = QPushButton("   Restore   ", self)
@@ -116,8 +116,8 @@ class ControlWindow(QWidget):
         self.w = add_new_email.AddNewEmail()
         self.w.show()
 
-    def night_mode(self):
-        self.w = night_mode.night_mode()
+    def history(self):
+        self.w = history.History()
         self.w.show()
 
     def sleep_interval(self):
@@ -151,10 +151,12 @@ class ControlWindow(QWidget):
     def not_selected_sleep_interval(self):
         if len(selected_info.hour) < 1 or len(selected_info.minute) < 1:
             self.time_dialog()
+            # print(selected_info.converted_h)
             import main
             main
 
         else:
+            # print(selected_info.converted_h)
             import main
             main
 
@@ -176,7 +178,7 @@ class ControlWindow(QWidget):
 
         returnValue = message.exec()
         if returnValue == QMessageBox.Ok:
-            selected_info.hour.append(hour)
+            selected_info.hour.append("1")
 
             print(selected_info.all)
 
