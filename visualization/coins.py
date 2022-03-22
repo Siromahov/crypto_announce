@@ -1,8 +1,8 @@
 from PyQt5.QtGui import QFont, QPixmap
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton, QTextEdit
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton
 import sys
 
-import selected_info
+from info_edit import selected_info
 
 
 class Coins(QWidget):

@@ -2,7 +2,7 @@ from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QCheckBox, QPushButton, QMessageBox
 import sys
 
-import selected_info
+from info_edit import selected_info
 import add_new_email
 import sleep_interval
 import coins

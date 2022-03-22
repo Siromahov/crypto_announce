@@ -1,6 +1,5 @@
-import send_mail
-import get_price
-import selected_info
+from scrape_and_send import send_mail, get_price
+from info_edit import selected_info
 from time import sleep
 
 while True:

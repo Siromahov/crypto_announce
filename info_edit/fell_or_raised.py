@@ -1,5 +1,4 @@
-import get_price
-
+from scrape_and_send import get_price
 
 # HOT percentage check
 HOT_fell_or_raised = get_price.HOT_percentage[0]

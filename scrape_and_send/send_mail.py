@@ -1,8 +1,7 @@
 from selenium import webdriver
 from time import sleep
-from selenium.webdriver.support.ui import WebDriverWait
 
-import text
+from info_edit import text
 
 PATH = "D:\chromedriver\chromedriver"
 driver = webdriver.Chrome(PATH)

@@ -1,6 +1,5 @@
-import get_price
-import fell_or_raised
-import selected_info
+from scrape_and_send import get_price
+from info_edit import fell_or_raised, selected_info
 
 text = []
 
