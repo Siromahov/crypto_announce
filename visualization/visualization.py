@@ -130,8 +130,8 @@ class ControlWindow(QWidget):
 
     def restore(self):
         selected_info.mails.clear()
-        selected_info.hour.clear()
-        selected_info.minute.clear()
+        selected_info.hours.clear()
+        selected_info.minutes.clear()
         selected_info.selected.clear()
         print(selected_info.all)
 
@@ -149,14 +149,10 @@ class ControlWindow(QWidget):
             self.not_selected_sleep_interval()
 
     def not_selected_sleep_interval(self):
-        if len(selected_info.hour) < 1 or len(selected_info.minute) < 1:
+        if len(selected_info.hours) < 1 and len(selected_info.minutes) < 1:
             self.time_dialog()
-            # print(selected_info.converted_h)
-            import main
-            main
 
         else:
-            # print(selected_info.converted_h)
             import main
             main
 
@@ -172,21 +168,20 @@ class ControlWindow(QWidget):
     def time_dialog(self):
         message = QMessageBox()
         message.setIcon(QMessageBox.Information)
-        message.setText("We will set the sleep interval by default to 1 hour!")
+        message.setText("Select a sleep interval!")
+       # message.resize(200,100)
         message.setWindowTitle("Not defined sleep interval")
         message.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
 
         returnValue = message.exec()
-        if returnValue == QMessageBox.Ok:
-            selected_info.hour.append("1")
 
-            print(selected_info.all)
 
     def not_selected_crypto_currency_dialog(self):
         message = QMessageBox()
         message.setIcon(QMessageBox.Information)
         message.setText("Select at least one crypto currency to continue!")
         message.setWindowTitle("No currency selected")
+
         message.setStandardButtons(QMessageBox.Ok)
 
         return_value = message.exec()
