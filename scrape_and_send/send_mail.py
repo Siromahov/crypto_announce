@@ -12,7 +12,7 @@ send_to = ["vasilsonicsiromahov@gmail.com"]
 driver.get("https://www.abv.bg/")
 print("\nopening abv.bg")
 
-driver.implicitly_wait(10)
+driver.implicitly_wait(8)
 driver.find_element_by_xpath("/html/body/main/section[1]/div[2]/form/p[1]/input"). \
     send_keys(mail)
 print(mail)
